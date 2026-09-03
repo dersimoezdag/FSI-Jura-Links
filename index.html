@@ -34,10 +34,33 @@
       <section class="updates-card" aria-labelledby="aktuelles-title">
         <h2 id="aktuelles-title">Aktuelles</h2>
 
-        <a href="https://paisley.ticket.io/hl9FAXuN/fjzba1sb1w/" class="link-btn" target="_blank" rel="noopener noreferrer">
-          <img src="icons/rocket.svg" alt="" class="link-icon" />
-          <span>Tickets sichern – Rabattcode: <strong>jura26</strong></span>
-        </a>
+        <div class="event-subcard">
+          <p class="event-card__eyebrow">Semester Opening Party</p>
+          <p class="event-card__description">Sichere dir jetzt dein Ticket für die Semester Opening Party.</p>
+
+          <a href="https://paisley.ticket.io/hl9FAXuN/fjzba1sb1w/" class="cta-button" target="_blank" rel="noopener noreferrer">
+            <svg class="cta-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 3 2 9l10 6 8.2-4.92V17h1.8V9L12 3Zm-6.43 6L12 5.14 18.43 9 12 12.86 5.57 9ZM6 12.17V16l6 3.6 6-3.6v-3.83L12 15.77 6 12.17Z" fill="currentColor" />
+            </svg>
+            <span>Jetzt Ticket sichern</span>
+          </a>
+
+          <div class="discount-code">
+            <label for="discount-code">Rabattcode/Passwort</label>
+            <div class="discount-code__controls">
+              <input id="discount-code" type="text" value="jura26" readonly aria-label="Rabattcode jura26" />
+              <button class="copy-button" type="button" data-copy-target="discount-code" aria-label="Rabattcode kopieren">
+                <svg class="copy-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    d="M8 7V5.75C8 4.78 8.78 4 9.75 4h8.5c.97 0 1.75.78 1.75 1.75v8.5c0 .97-.78 1.75-1.75 1.75H17v-1.75h1.25V5.75H9.75V7H8Zm-2.25 2h8.5c.97 0 1.75.78 1.75 1.75v8.5c0 .97-.78 1.75-1.75 1.75h-8.5A1.75 1.75 0 0 1 4 19.25v-8.5C4 9.78 4.78 9 5.75 9Zm0 1.75v8.5h8.5v-8.5h-8.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+            <span class="copy-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
       </section>
 
       <a href="https://www.instagram.com/fachschaft.jura.erlangen/" class="link-btn" target="_blank">
@@ -80,6 +103,37 @@
           var nextTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
           localStorage.setItem(storageKey, nextTheme);
           applyTheme(nextTheme);
+        });
+      })();
+
+      (function () {
+        var copyButton = document.querySelector('.copy-button');
+
+        copyButton.addEventListener('click', async function () {
+          var input = document.getElementById(copyButton.dataset.copyTarget);
+          var status = document.querySelector('.copy-status');
+          var discountCode = input.value;
+
+          try {
+            await navigator.clipboard.writeText(discountCode);
+            status.textContent = 'Rabattcode kopiert.';
+            input.value = 'Erfolgreich';
+            input.setAttribute('aria-label', 'Rabattcode erfolgreich kopiert');
+            input.classList.add('is-copied');
+            copyButton.classList.add('is-copied');
+            copyButton.disabled = true;
+            copyButton.setAttribute('aria-label', 'Rabattcode kopiert');
+            setTimeout(function () {
+              input.value = discountCode;
+              input.setAttribute('aria-label', 'Rabattcode ' + discountCode);
+              input.classList.remove('is-copied');
+              copyButton.classList.remove('is-copied');
+              copyButton.disabled = false;
+              copyButton.setAttribute('aria-label', 'Rabattcode kopieren');
+            }, 1000);
+          } catch (error) {
+            status.textContent = 'Kopieren war nicht möglich.';
+          }
         });
       })();
     </script>

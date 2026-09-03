@@ -210,6 +210,156 @@ body[data-theme="dark"] .updates-card {
     text-transform: uppercase;
 }
 
+.event-subcard {
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--btn-bg);
+    border: 1px solid var(--border-color);
+}
+
+.event-subcard + .event-subcard {
+    margin-top: 12px;
+}
+
+.event-card__eyebrow {
+    margin: 0 0 6px;
+    color: var(--primary);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.event-card__description {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--primary);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 47, 108, 0.22);
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 47, 108, 0.3);
+}
+
+.cta-button__icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+}
+
+.discount-code {
+    margin-top: 16px;
+}
+
+.discount-code label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--muted-text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.discount-code__controls {
+    position: relative;
+    display: flex;
+}
+
+.discount-code input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    min-height: 46px;
+    padding: 0 54px 0 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--btn-bg);
+    color: var(--text-color);
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.discount-code input.is-copied {
+    background: #dff6e9;
+    border-color: #137a4c;
+    color: #0d5a36;
+}
+
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 7px;
+    background: var(--primary);
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.copy-button:hover {
+    opacity: 0.88;
+}
+
+.copy-button:active {
+    transform: scale(0.94);
+}
+
+.copy-button.is-copied {
+    background: #137a4c;
+}
+
+.copy-button:disabled {
+    cursor: default;
+}
+
+.copy-button__icon {
+    width: 17px;
+    height: 17px;
+}
+
+.copy-button:focus-visible,
+.discount-code input:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.copy-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 .link-btn {
     display: flex;
     align-items: center;
@@ -239,10 +389,6 @@ body[data-theme="dark"] .updates-card {
 
 body[data-theme="dark"] .link-icon {
     filter: brightness(0) invert(1);
-}
-
-.updates-card .link-btn:last-child {
-    margin-bottom: 0;
 }
 
 .link-btn:hover {
@@ -297,4 +443,5 @@ body[data-theme="dark"] .link-icon {
     .updates-card {
         padding: 16px;
     }
+
 }
