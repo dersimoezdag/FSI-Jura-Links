@@ -217,7 +217,7 @@ body[data-theme="dark"] .updates-card {
     border: 1px solid var(--border-color);
 }
 
-.event-subcard + .event-subcard {
+.event-subcard+.event-subcard {
     margin-top: 12px;
 }
 
@@ -288,7 +288,8 @@ body[data-theme="dark"] .updates-card {
     min-width: 0;
     box-sizing: border-box;
     min-height: 46px;
-    padding: 0 54px 0 16px;
+    padding: 0 54px;
+    text-align: center;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     background: var(--btn-bg);
@@ -296,7 +297,6 @@ body[data-theme="dark"] .updates-card {
     font: inherit;
     font-weight: 700;
     letter-spacing: 0.02em;
-    text-align: center;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
