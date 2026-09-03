@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSI Jura Erlangen | Links</title>
+    <link rel="icon" href="logo.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" type="button" aria-label="Theme umschalten" aria-pressed="false">
+          <span class="theme-switch" aria-hidden="true">
+            <span class="theme-icon theme-icon--sun">☀️</span>
+            <span class="theme-icon theme-icon--moon">🌙</span>
+            <span class="theme-knob"></span>
+          </span>
+          <span class="theme-text">Light</span>
+        </button>
+      </div>
+      <!-- Logo/Avatar Placeholder -->
+      <img src="logo.png" alt="FSI Jura Erlangen Logo" class="profile-img" />
+
+      <h1>FSI Jura Erlangen</h1>
+      <p>Fachschaftsinitiative Rechtswissenschaften</p>
+
+      <!-- Links -->
+      <a href="https://jura.fsi.fau.de" class="link-btn" target="_blank">
+        <img src="icons/earth.svg" alt="" class="link-icon" />
+        <span>Offizielle Webseite der Fachschaft</span>
+      </a>
+
+      <section class="updates-card" aria-labelledby="aktuelles-title">
+        <h2 id="aktuelles-title">Aktuelles</h2>
+
+        <a href="https://paisley.ticket.io/hl9FAXuN/fjzba1sb1w/" class="link-btn" target="_blank" rel="noopener noreferrer">
+          <img src="icons/rocket.svg" alt="" class="link-icon" />
+          <span>Tickets sichern – Rabattcode: <strong>jura26</strong></span>
+        </a>
+      </section>
+
+      <a href="https://www.instagram.com/fachschaft.jura.erlangen/" class="link-btn" target="_blank">
+        <img src="icons/instagram.svg" alt="" class="link-icon" />
+        <span>Instagram (@fachschaft.jura.erlangen)</span>
+      </a>
+
+      <a href="mailto:fsi-jura@fau.de" class="link-btn">
+        <img src="icons/mail.svg" alt="" class="link-icon" />
+        <span>E-Mail schreiben</span>
+      </a>
+
+      <div class="footer">&copy; 2026 FSI Jura Erlangen</div>
+    </div>
+    <script>
+      (function () {
+        var storageKey = 'fsi-theme';
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var savedTheme = localStorage.getItem(storageKey);
+        var theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        var toggle = document.querySelector('.theme-toggle');
+
+        function applyTheme(value) {
+          if (value === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            toggle.classList.add('is-dark');
+            toggle.setAttribute('aria-pressed', 'true');
+            toggle.querySelector('.theme-text').textContent = 'Dark';
+          } else {
+            document.body.removeAttribute('data-theme');
+            toggle.classList.remove('is-dark');
+            toggle.setAttribute('aria-pressed', 'false');
+            toggle.querySelector('.theme-text').textContent = 'Light';
+          }
+        }
+
+        applyTheme(theme);
+
+        toggle.addEventListener('click', function () {
+          var nextTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          localStorage.setItem(storageKey, nextTheme);
+          applyTheme(nextTheme);
+        });
+      })();
+    </script>
+  </body>
+</html>
